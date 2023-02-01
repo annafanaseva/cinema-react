@@ -9,11 +9,10 @@ const MovieDescription = () => {
   const { id } = useParams();
 
   return (
-    <>
+    <div className={styles.wrapper}>
       <Header />
-      <p className={styles.text}>{id}</p>
       <MovieDetail id={id} />
-    </>
+    </div>
   );
 };
 

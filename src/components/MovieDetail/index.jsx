@@ -21,9 +21,11 @@ const MovieDetail = (props) => {
   return (
     <>
       {descriptions.map((description) => (
-        <p className={styles.text} key={description.eventId}>
-          {description.annotation}
-        </p>
+        <div className={styles.wrapper} key={description.eventId}>
+          <img className={styles.img} src={description.posterLink} alt="" />
+
+          <p className={styles.text}>{description.annotation}</p>
+        </div>
       ))}
     </>
   );
