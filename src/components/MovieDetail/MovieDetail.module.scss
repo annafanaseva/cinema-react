@@ -1,0 +1,52 @@
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 50px;
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+
+  .genres {
+    margin: 0;
+  }
+
+  .text {
+    color: white;
+    margin-top: 20px;
+  }
+
+  .genre {
+    color: #777;
+    margin-right: 10px;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .ageLimit {
+    color: #f50;
+    margin-left: 10px;
+  }
+
+  .trailerLink {
+    color: white;
+  }
+}
+
+.title {
+  color: white;
+  font-size: 24px;
+  margin: 0;
+}
+
+.wrapperAvailiableCinema {
+  max-width: 50%;
+  margin: 40px auto 0;
+}
+
+.img {
+  max-width: 300px;
+}
