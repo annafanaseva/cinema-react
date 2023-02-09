@@ -1,14 +1,23 @@
 import styles from './AvaliableCinema.module.scss';
 
 const AvailiableCinema = (props) => {
-  const { name, address, auditorium } = props;
+  const { sessions } = props;
+
+  console.log(sessions);
 
   return (
     <div className={styles.card}>
-      <p className={styles.title}>{name}</p>
-      <p className={styles.title}>{address}</p>
-      <p className={styles.title}>{auditorium}</p>
-      <p>hi</p>
+      {sessions ? (
+        sessions.map((session) => (
+          <div className={styles.address} key={session.showId}>
+            {session.theater.address}
+            <span>{session.auditorium.name}</span>
+            <span>{session.start}</span>
+          </div>
+        ))
+      ) : (
+        <div>No availiable sessions</div>
+      )}
     </div>
   );
 };

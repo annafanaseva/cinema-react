@@ -18,7 +18,6 @@ const MovieDetail = (props) => {
       })
       .then((data) => {
         setDescription(data);
-        console.log(data);
       });
   }, [id]);
 
@@ -77,11 +76,10 @@ const MovieDetail = (props) => {
           <div className={styles.wrapperAvailiableCinema}>
             {description.showList ? (
               Object.keys(description.showList).map((cinema) => (
-                <div className={styles.title} key={cinema}>
-                  <AvailiableCinema />
-
-                  {description.showList[cinema][0].showId}
-                </div>
+                <>
+                  <div className={styles.title}>{cinema}</div>
+                  <AvailiableCinema key={cinema} sessions={description.showList[cinema]} />
+                </>
               ))
             ) : (
               <div className={styles.title}>Доступные сеансы отсутствуют</div>
