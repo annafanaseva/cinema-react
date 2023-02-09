@@ -17,7 +17,7 @@ const Header = () => {
 
       <div className={styles.wrapper}>
         <Link to="/login">
-          <Button title={'Sign in'} />
+          <Button title="Sign in" />
         </Link>
       </div>
     </div>

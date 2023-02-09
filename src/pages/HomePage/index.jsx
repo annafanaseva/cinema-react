@@ -3,10 +3,10 @@ import Header from '../../components/Header';
 
 const HomePage = () => {
   return (
-    <div>
+    <>
       <Header />
       <FilmCardWrapper />
-    </div>
+    </>
   );
 };
 

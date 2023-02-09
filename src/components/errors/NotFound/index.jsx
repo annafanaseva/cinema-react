@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import styles from './Page404.module.scss';
+import styles from './NotFound.module.scss';
 
-function Page404() {
+const NotFound = () => {
   return (
     <>
       <h1 className={styles.title}>404 not found, we have no such page</h1>
@@ -15,6 +15,6 @@ function Page404() {
       </div>
     </>
   );
-}
+};
 
-export default Page404;
+export default NotFound;

@@ -13,7 +13,7 @@ const FilmCard = (props) => {
       <p className={styles.title}>{title}</p>
 
       <Link to={`/movie-description/${id}`}>
-        <Button title={'Buy ticket'} />
+        <Button title="Купить билет" />
       </Link>
     </div>
   );

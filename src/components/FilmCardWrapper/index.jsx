@@ -7,39 +7,45 @@ import styles from './FilmCardWrapper.module.scss';
 
 const FilmCardWrapper = () => {
   const [films, setFilms] = useState([]);
+
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      setErrorMessage(false);
-      try {
-        const res = await fetch(
-          'https://soft.silverscreen.by:8443/wssite/webapi/event/data?filter=%7B%22city%22:1%7D&extended=true'
-        );
-        const json = await res.json();
-        setFilms(json);
-      } catch (error) {
-        setErrorMessage(true);
-      }
-      setIsLoading(false);
-    };
     fetchData();
-  }, [setFilms]);
+  }, []);
+
+  const fetchData = async () => {
+    setIsLoading(true);
+    setIsError(false);
+    try {
+      const res = await fetch(
+        'https://soft.silverscreen.by:8443/wssite/webapi/event/data?filter=%7B%22city%22:1%7D&extended=true'
+      );
+
+      const json = await res.json();
+
+      setFilms(json);
+    } catch (error) {
+      setIsError(true);
+    }
+    setIsLoading(false);
+  };
 
   return (
     <>
-      {errorMessage && <div className={styles.title}>Ooops, something went wrong</div>}
+      {isError && <div className={styles.title}>Ooops, something went wrong</div>}
+
       {isLoading ? (
         <Loader />
-      ) : Object.keys(films).length !== 0 ? (
+      ) : films.length ? (
         <div className={styles.wrapper}>
-          {films?.map((film) => (
+          {films.map((film) => (
             <FilmCard
               key={film.order}
               title={film.acronym}
-              imgUrl={film.bannerLink}
+              imgUrl={film.posterLink}
               id={film.eventId}
             />
           ))}
@@ -50,19 +56,5 @@ const FilmCardWrapper = () => {
     </>
   );
 };
-
-// function renderMovies() {
-//   if (Object.keys(films).length !== 0) {
-//     return (
-
-//     );
-//   } else {
-//     return (
-//       <div className={styles.wrapper}>
-//         <h1 className={styles.title}>We’ve found no movies, sorry!</h1>
-//       </div>
-//     );
-//   }
-// }
 
 export default FilmCardWrapper;

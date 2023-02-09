@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 
-import Page404 from '../components/errors/Page404';
+import NotFound from '../components/errors/NotFound';
 import HomePage from '../pages/HomePage';
 import Login from '../pages/Login';
 import MovieDescription from '../pages/MovieDescription';
@@ -11,7 +11,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Page404 />} />
+        <Route path="*" element={<NotFound />} />
         <Route path="/movie-description/:id" element={<MovieDescription />} />
       </Routes>
     </>
