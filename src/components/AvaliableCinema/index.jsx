@@ -3,8 +3,6 @@ import styles from './AvaliableCinema.module.scss';
 const AvailiableCinema = (props) => {
   const { sessions } = props;
 
-  //console.log(sessions);
-
   return (
     <div className={styles.card}>
       {sessions ? (
@@ -13,10 +11,11 @@ const AvailiableCinema = (props) => {
             {session.theater.address}
             <span>{session.auditorium.name}</span>
             <span>{session.start}</span>
+            <span>hi</span>
           </div>
         ))
       ) : (
-        <div>No availiable sessions</div>
+        <div className={styles.address}>No availiable sessions</div>
       )}
     </div>
   );

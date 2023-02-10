@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import AvailiableCinema from '../AvaliableCinema';
+import AvaliableCinema from '../AvaliableCinema';
 
 import styles from './MovieDetail.module.scss';
 
@@ -8,6 +8,26 @@ const MovieDetail = (props) => {
   const { id } = props;
 
   const [description, setDescription] = useState([]);
+
+  const monthNames = [
+    'января',
+    'февраля',
+    'марта',
+    'апреля',
+    'мая',
+    'июня',
+    'июля',
+    'августа',
+    'сентября',
+    'октября',
+    'ноября',
+    'декабря'
+  ];
+
+  const renderAvaliableSessions = (cinema) => {
+    console.log(cinema);
+    return <AvaliableCinema sessions={cinema} />;
+  };
 
   useEffect(() => {
     fetch(
@@ -74,18 +94,22 @@ const MovieDetail = (props) => {
             </div>
           </div>
 
-          <div className={styles.wrapperAvailiableCinema}>
+          <div className={styles.wrapperAvailiableDate}>
             {description.showList ? (
               Object.keys(description.showList).map((cinema) => (
-                <>
-                  <div className={styles.title}>{cinema}</div>
-                  <AvailiableCinema key={cinema} sessions={description.showList[cinema]} />
-                </>
+                <div
+                  key={cinema}
+                  className={styles.availiableDate}
+                  onClick={() => renderAvaliableSessions(description.showList[cinema])}>
+                  {new Date(cinema).getDate() + ' ' + monthNames[new Date(cinema).getMonth()]}
+                </div>
               ))
             ) : (
               <div className={styles.title}>Доступные сеансы отсутствуют</div>
             )}
           </div>
+
+          <AvaliableCinema />
         </>
       ))}
     </>

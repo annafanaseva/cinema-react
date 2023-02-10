@@ -48,4 +48,20 @@
 
 .img {
   max-width: 300px;
+  border-radius: 10px;
+}
+
+.wrapperAvailiableDate {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.availiableDate {
+  color: white;
+  font-size: 17px;
+  border: 1px solid #fff;
+  padding: 6px 15px;
+  border-radius: 10px;
+  cursor: pointer;
 }
