@@ -3,7 +3,7 @@ import styles from './AvaliableCinema.module.scss';
 const AvailiableCinema = (props) => {
   const { sessions } = props;
 
-  console.log(sessions);
+  //console.log(sessions);
 
   return (
     <div className={styles.card}>

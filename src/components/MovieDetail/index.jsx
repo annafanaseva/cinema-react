@@ -17,6 +17,7 @@ const MovieDetail = (props) => {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         setDescription(data);
       });
   }, [id]);
