@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import AvaliableCinema from '../AvaliableCinema';
+import { monthNames } from '../../constants';
 
 import styles from './MovieDetail.module.scss';
 
@@ -9,20 +10,7 @@ const MovieDetail = (props) => {
 
   const [descriptionList, setDescription] = useState([]);
 
-  const monthNames = [
-    'января',
-    'февраля',
-    'марта',
-    'апреля',
-    'мая',
-    'июня',
-    'июля',
-    'августа',
-    'сентября',
-    'октября',
-    'ноября',
-    'декабря'
-  ];
+  //const [count, setCount] = useState();
 
   const renderAvaliableSessions = (cinema) => {
     console.log(cinema);

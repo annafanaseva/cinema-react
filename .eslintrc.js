@@ -18,6 +18,7 @@ module.exports = {
     'react/prop-types': 'off',
     'prettier/prettier': 'error',
     'arrow-body-style': 'off',
+    'no-unused-vars': 'off',
     'prefer-arrow-callback': 'off'
   }
 };
