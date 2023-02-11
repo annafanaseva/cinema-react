@@ -54,7 +54,7 @@
 .wrapperAvailiableDate {
   margin-top: 40px;
   display: flex;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .availiableDate {
@@ -64,4 +64,9 @@
   padding: 6px 15px;
   border-radius: 10px;
   cursor: pointer;
+  margin: 10px 30px 10px 0;
+}
+
+.trailerLinkNone {
+  color: white;
 }

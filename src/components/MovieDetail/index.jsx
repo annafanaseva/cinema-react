@@ -108,8 +108,6 @@ const MovieDetail = (props) => {
               <div className={styles.title}>Доступные сеансы отсутствуют</div>
             )}
           </div>
-
-          <AvaliableCinema />
         </>
       ))}
     </>
