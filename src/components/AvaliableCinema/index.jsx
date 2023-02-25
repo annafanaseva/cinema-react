@@ -4,20 +4,25 @@ const AvailiableCinema = (props) => {
   const { sessions } = props;
 
   return (
-    <div className={styles.card}>
+    <>
       {sessions ? (
-        sessions.map((session) => (
-          <div className={styles.address} key={session.showId}>
-            {session.theater.address}
-            <span>{session.auditorium.name}</span>
-            <span>{session.start}</span>
-            <span>hi</span>
-          </div>
-        ))
+        sessions.map((session) => {
+          const { theater, showId, auditorium, start } = session;
+
+          return (
+            <div className={styles.card} key={showId}>
+              <span className={styles.time}>
+                {new Date(start).getHours() + ':' + new Date(start).getMinutes()}
+              </span>
+              <span className={styles.address}>{auditorium.name}</span>
+              <div className={styles.address}>{theater.address}</div>
+            </div>
+          );
+        })
       ) : (
         <div className={styles.address}>No availiable sessions</div>
       )}
-    </div>
+    </>
   );
 };
 

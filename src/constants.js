@@ -12,3 +12,8 @@ export const monthNames = [
   'ноября',
   'декабря'
 ];
+
+export const CITIES = {
+  Минск: 1,
+  Гродно: 5
+};

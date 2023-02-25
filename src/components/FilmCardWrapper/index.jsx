@@ -21,7 +21,7 @@ const FilmCardWrapper = () => {
     setIsError(false);
     try {
       const res = await fetch(
-        'https://soft.silverscreen.by:8443/wssite/webapi/event/data?filter=%7B%22city%22:1%7D&extended=true'
+        'https://soft.silverscreen.by:8443/wssite/webapi/event/data?filter=%7B%22city%22:5%7D&extended=true'
       );
 
       const json = await res.json();

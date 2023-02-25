@@ -10,21 +10,12 @@ const MovieDetail = (props) => {
 
   const [descriptionList, setDescription] = useState([]);
 
-  const [sessionDate, setSessionDate] = useState();
-
-  const renderAvaliableSessions = (cinema) => {
-    console.log(cinema);
-    setSessionDate(cinema);
-    <AvaliableCinema sessions={sessionDate} />;
-  };
-
-  // const renderSessions = (cinema) => () => {
-  //   console.log(cinema);
-  // };
+  const [sessionDate, setSessionDate] = useState([]);
+  const cityId = 5;
 
   useEffect(() => {
     fetch(
-      `https://soft.silverscreen.by:8443/wssite/webapi/event/data?filter=%7B%22event%22:%22${id}%22,%22city%22:%221%22%7D&extended=true`
+      `https://soft.silverscreen.by:8443/wssite/webapi/event/data?filter=%7B%22event%22:%22${id}%22,%22city%22:%22${cityId}%22%7D&extended=true`
     )
       .then((response) => {
         return response.json();
@@ -94,12 +85,11 @@ const MovieDetail = (props) => {
             <div className={styles.wrapperAvailiableDate}>
               {showList ? (
                 Object.keys(showList).map((cinema) => {
-                  // создать стейт с активной датой, рендер при активной дате, передать inline func,
                   return (
                     <div
                       key={cinema}
                       className={styles.availiableDate}
-                      onClick={() => renderAvaliableSessions(showList[cinema])}>
+                      onClick={() => setSessionDate(showList[cinema])}>
                       {new Date(cinema).getDate() + ' ' + monthNames[new Date(cinema).getMonth()]}
                     </div>
                   );
@@ -107,6 +97,10 @@ const MovieDetail = (props) => {
               ) : (
                 <div className={styles.title}>Доступные сеансы отсутствуют</div>
               )}
+            </div>
+
+            <div className={styles.wrapperAvailiableSession}>
+              {sessionDate && <AvaliableCinema sessions={sessionDate} />}
             </div>
           </>
         );
