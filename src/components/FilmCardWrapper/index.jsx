@@ -27,6 +27,7 @@ const FilmCardWrapper = () => {
       const json = await res.json();
 
       setFilms(json);
+      console.log(json);
     } catch (error) {
       setIsError(true);
     }
@@ -35,20 +36,26 @@ const FilmCardWrapper = () => {
 
   return (
     <>
-      {isError && <div className={styles.title}>Ooops, something went wrong</div>}
+      <div className={styles.title}>Афиша кино</div>
+
+      {isError && <div className={styles.errorTitle}>Ooops, something went wrong</div>}
 
       {isLoading ? (
         <Loader />
       ) : films.length ? (
         <div className={styles.wrapper}>
-          {films.map((film) => (
-            <FilmCard
-              key={film.order}
-              title={film.acronym}
-              imgUrl={film.posterLink}
-              id={film.eventId}
-            />
-          ))}
+          {films.map(function (film) {
+            const { order, acronym, posterLink, eventId, ageLimit } = film;
+            return (
+              <FilmCard
+                key={order}
+                title={acronym}
+                imgUrl={posterLink}
+                id={eventId}
+                ageLimit={ageLimit}
+              />
+            );
+          })}
         </div>
       ) : (
         <div className={styles.title}>We’ve found no movies, sorry!</div>

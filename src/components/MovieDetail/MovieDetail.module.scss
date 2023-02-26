@@ -5,41 +5,127 @@
   margin-top: 50px;
 }
 
-.textWrapper {
+.hero {
+  margin-top: 80px;
   display: flex;
-  flex-direction: column;
-  margin-left: 30px;
+  position: relative;
 
-  .genres {
-    margin: 0;
+  .heroWrapper {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
-  .text {
-    color: white;
-    margin-top: 20px;
+  .backgroundImg {
+    position: relative;
+    z-index: -1;
+    display: block;
+    max-width: 50%;
+    height: 320px;
+    opacity: 0.6;
+    object-fit: cover;
+    border-radius: 10px;
+    mask-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, #000033 50%);
   }
 
-  .genre {
-    color: #777;
-    margin-right: 10px;
-    font-size: 14px;
-    line-height: 1;
+  .videoPreview {
+    position: relative;
+    width: 250px;
+    height: 150px;
+    cursor: pointer;
+
+    .videoPlay {
+      background: linear-gradient(135deg, #c34fa4 50%, #f8595e);
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      padding: 0px;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      svg {
+        color: rgba(255, 255, 255, 0.8);
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-left: 3px;
+      }
+    }
+
+    img {
+      transition: .3s ease-in-out;
+      border-radius: 10px;
+      width: 100%;
+    }
   }
 
   .ageLimit {
-    color: #f50;
-    margin-left: 10px;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    color: white;
+    padding: 8px;
+    background: linear-gradient(135deg, #c34fa4 50%, #f8595e);
+    border-radius: 50%;
+    font-weight: 500;
   }
 
-  .trailerLink {
-    color: white;
+  .heroTextWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .filmName {
+      line-height: 1;
+      margin: 0;
+      color: #fff;
+      font: 700 40px Ubuntu, Roboto, Arial, Helvetica, sans-serif;
+      font-size: 34px;
+    }
+
+    .genre {
+      color: #909090;
+      margin-right: 8px;
+      font-size: 14px;
+    }
+
+    .detail {
+      margin: 5px 0 0;
+
+      .language {
+        color: #c34fa4;
+        font-size: 14px;
+      }
+    }
   }
 }
 
-.title {
-  color: white;
-  font-size: 24px;
-  margin: 0;
+.textWrapper {
+  margin-left: 30px;
+
+  .text {
+    color: #fff;
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .trailerLink {
+    display: inline-block;
+    padding: 6px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 16px;
+    border: 2px solid #c34fa4;
+    color: #fff;
+    font-family: Ubuntu, sans-serif;
+  }
 }
 
 .wrapperAvailiableCinema {
@@ -47,7 +133,7 @@
 }
 
 .img {
-  max-width: 300px;
+  max-width: 200px;
   border-radius: 10px;
 }
 
@@ -58,12 +144,14 @@
 }
 
 .availiableDate {
+  display: inline-block;
+  padding: 6px 20px;
   color: white;
-  font-size: 17px;
-  border: 1px solid #fff;
-  padding: 6px 15px;
-  border-radius: 10px;
-  cursor: pointer;
+  text-decoration: none;
+  border-radius: 16px;
+  border: 2px solid #c34fa4;
+  color: #fff;
+  font-family: Ubuntu, sans-serif;
   margin: 10px 30px 10px 0;
 }
 
@@ -72,6 +160,7 @@
 }
 
 .wrapperAvailiableSession {
+  margin-top: 60px;
   display: flex;
   flex-wrap: wrap;
   width: 100%;
