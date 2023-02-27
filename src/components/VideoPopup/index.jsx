@@ -1,5 +1,3 @@
-//import Button from '../Button';
-
 import styles from './VideoPopup.module.scss';
 
 const VideoPopup = (props) => {

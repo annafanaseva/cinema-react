@@ -27,7 +27,6 @@ const FilmCardWrapper = () => {
       const json = await res.json();
 
       setFilms(json);
-      console.log(json);
     } catch (error) {
       setIsError(true);
     }

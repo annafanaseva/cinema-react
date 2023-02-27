@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { useState, useEffect } from 'react';
 
 import AvaliableCinema from '../AvaliableCinema';
@@ -8,15 +7,13 @@ import { monthNames } from '../../constants';
 import styles from './MovieDetail.module.scss';
 
 const MovieDetail = (props) => {
-  const { id } = props;
+  const { id, cityId } = props;
 
   const [descriptionList, setDescription] = useState([]);
 
-  const [sessionDate, setSessionDate] = useState([]);
+  const [sessionDateList, setSessionDateList] = useState([]);
 
   const [isOpen, setIsOpen] = useState(false);
-
-  const cityId = 5;
 
   useEffect(() => {
     fetch(
@@ -28,7 +25,7 @@ const MovieDetail = (props) => {
       .then((data) => {
         setDescription(data);
       });
-  }, [id]);
+  }, [id, cityId]);
 
   return (
     <>
@@ -64,11 +61,11 @@ const MovieDetail = (props) => {
                   <p className={styles.detail}>
                     <span className={styles.genre}>Жанр:</span>
                     {genres &&
-                      genres.map((genre, index) => (
+                      genres.map((genre, idx) => (
                         <span className={styles.genre} key={genre.id}>
                           {genre.name}
 
-                          {index + 1 === genres.length ? <span>.</span> : <span>,</span>}
+                          {idx + 1 === genres.length ? <span>.</span> : <span>,</span>}
                         </span>
                       ))}
                   </p>
@@ -91,6 +88,7 @@ const MovieDetail = (props) => {
                         <path fill="#fff" d="M1,1 L12,7 L1,13"></path>
                       </svg>
                     </div>
+
                     <img
                       src={`http://img.youtube.com/vi/${youTubeTrailer}/maxresdefault.jpg`}
                       alt=""
@@ -116,24 +114,28 @@ const MovieDetail = (props) => {
 
             <div className={styles.wrapperAvailiableDate}>
               {showList ? (
-                Object.keys(showList).map((cinema) => {
+                Object.keys(showList).map((date, idx) => {
                   return (
                     <div
-                      key={cinema}
+                      key={idx}
                       className={styles.availiableDate}
-                      onClick={() => setSessionDate(showList[cinema])}
-                    >
-                      {new Date(cinema).getDate() + ' ' + monthNames[new Date(cinema).getMonth()]}
+                      onClick={() => setSessionDateList(showList[date])}>
+                      {new Date(date).getDate() + ' ' + monthNames[new Date(date).getMonth()]}
                     </div>
                   );
                 })
               ) : (
-                <div className={styles.title}>Доступные сеансы отсутствуют</div>
+                <div className={styles.text}>Доступные сеансы отсутствуют</div>
               )}
             </div>
 
             <div className={styles.wrapperAvailiableSession}>
-              {sessionDate && <AvaliableCinema sessions={sessionDate} />}
+              {sessionDateList?.map((session, idx) => {
+                <div key={idx}>
+                  <p className={styles.text}>hi</p>
+                  <AvaliableCinema session={session} />
+                </div>;
+              })}
             </div>
           </>
         );

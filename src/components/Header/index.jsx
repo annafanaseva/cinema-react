@@ -8,12 +8,15 @@ import { CITIES } from '../../constants';
 
 import styles from './Header.module.scss';
 
-const Header = () => {
-  const [selected, setSelected] = useState('');
-
-  const handleChange = (event) => {
+const Header = ({ onChange }) => {
+  const handleCityIdChange = (event) => {
     console.log(event.target.value);
-    setSelected(event.target.value);
+    if (event.target.value === 'Гродно') {
+      onChange(5);
+    }
+    if (event.target.value === 'Минск') {
+      onChange(1);
+    }
   };
 
   return (
@@ -24,7 +27,7 @@ const Header = () => {
         </Link>
       </div>
 
-      <select className={styles.select} name="citySelect" onChange={handleChange}>
+      <select className={styles.select} name="citySelect" onChange={handleCityIdChange}>
         {CITIES &&
           Object.entries(CITIES).map(([city, idx]) => {
             return (
