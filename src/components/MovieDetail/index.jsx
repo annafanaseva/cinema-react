@@ -130,12 +130,8 @@ const MovieDetail = (props) => {
             </div>
 
             <div className={styles.wrapperAvailiableSession}>
-              {sessionDateList?.map((session, idx) => {
-                <div key={idx}>
-                  <p className={styles.text}>hi</p>
-                  <AvaliableCinema session={session} />
-                </div>;
-              })}
+              {console.log(sessionDateList)};
+              <AvaliableCinema sessions={sessionDateList} />
             </div>
           </>
         );
