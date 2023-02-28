@@ -77,7 +77,7 @@ const MovieDetail = (props) => {
                         <span className={styles.genre} key={genre.id}>
                           {genre.name}
 
-                          {idx + 1 === genres.length ? <span>.</span> : <span>,</span>}
+                          {idx + 1 !== genres.length && <span>,</span>}
                         </span>
                       ))}
                   </p>
