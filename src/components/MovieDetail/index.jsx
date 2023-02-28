@@ -3,17 +3,29 @@ import { useState, useEffect } from 'react';
 import AvaliableCinema from '../AvaliableCinema';
 import VideoPopup from '../VideoPopup';
 import { monthNames } from '../../constants';
+import { CITIES } from '../../constants';
 
 import styles from './MovieDetail.module.scss';
 
 const MovieDetail = (props) => {
-  const { id, cityId } = props;
+  const { id } = props;
 
   const [descriptionList, setDescription] = useState([]);
 
   const [sessionDateList, setSessionDateList] = useState([]);
 
+  const [cityId, setCityId] = useState(1);
+
   const [isOpen, setIsOpen] = useState(false);
+
+  const handleCityIdChange = (event) => {
+    setSessionDateList([]);
+    Object.keys(CITIES).map((city) => {
+      if (event.target.value === city) {
+        setCityId(CITIES[city]);
+      }
+    });
+  };
 
   useEffect(() => {
     fetch(
@@ -112,6 +124,17 @@ const MovieDetail = (props) => {
               </div>
             </div>
 
+            <select className={styles.select} name="citySelect" onChange={handleCityIdChange}>
+              {CITIES &&
+                Object.entries(CITIES).map(([city, idx]) => {
+                  return (
+                    <option value={city} key={idx}>
+                      {city}
+                    </option>
+                  );
+                })}
+            </select>
+
             <div className={styles.wrapperAvailiableDate}>
               {showList ? (
                 Object.keys(showList).map((date, idx) => {
@@ -130,7 +153,6 @@ const MovieDetail = (props) => {
             </div>
 
             <div className={styles.wrapperAvailiableSession}>
-              {console.log(sessionDateList)};
               <AvaliableCinema sessions={sessionDateList} />
             </div>
           </>
