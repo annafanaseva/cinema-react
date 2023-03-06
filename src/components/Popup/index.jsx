@@ -1,17 +1,14 @@
-import styles from './VideoPopup.module.scss';
+import Login from '../../components/Login';
 
-const VideoPopup = (props) => {
-  const { link, closePopup } = props;
+import styles from './Popup.module.scss';
+
+const Popup = (props) => {
+  const { closePopup } = props;
 
   return (
     <div className={styles.hero}>
-      <div className={styles.videoWrapper}>
-        <iframe
-          width="560"
-          height="315"
-          src={`https://www.youtube.com/embed/${link}`}
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+      <div className={styles.popupWrapper}>
+        <Login />
 
         <div
           onClick={() => {
@@ -32,4 +29,4 @@ const VideoPopup = (props) => {
   );
 };
 
-export default VideoPopup;
+export default Popup;
