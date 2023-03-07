@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import logoImage from '../../assets/img/logo.svg';
 import Button from '../Button';
@@ -9,6 +10,7 @@ import styles from './Header.module.scss';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const formType = useSelector((state) => state);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
@@ -27,7 +29,7 @@ const Header = () => {
           <Button title="Войти" />
         </div>
 
-        {isOpen && <Popup closePopup={(isOpen) => setIsOpen(isOpen)} />}
+        {isOpen && <Popup formType={formType} closePopup={(isOpen) => setIsOpen(isOpen)} />}
       </div>
     </>
   );

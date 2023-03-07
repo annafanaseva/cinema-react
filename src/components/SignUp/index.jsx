@@ -8,10 +8,30 @@ const SignUp = () => {
       <h2>Регистрация</h2>
 
       <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="email.."
+        autoComplete="off"
+        required
+      />
+
+      <input type="text" id="name" name="name" placeholder="Имя.." autoComplete="off" required />
+
+      <input
         type="text"
-        id="username"
-        name="username"
-        placeholder="Логин.."
+        id="lastname"
+        name="lastname"
+        placeholder="Фамилия.."
+        autoComplete="off"
+        required
+      />
+
+      <input
+        type="phone"
+        id="phone"
+        name="phone"
+        placeholder="Телефон.."
         autoComplete="off"
         required
       />
@@ -25,7 +45,17 @@ const SignUp = () => {
         required
       />
 
+      <input
+        type="password"
+        id="repetPassword"
+        name="repetPassword"
+        placeholder="Повторите пароль.."
+        autoComplete="off"
+        required
+      />
+
       <Button title="Зарегистрироваться" />
+      <Button title="Уже есть аккаунт" />
     </div>
   );
 };

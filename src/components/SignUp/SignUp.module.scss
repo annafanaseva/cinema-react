@@ -1,0 +1,44 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+
+  h2,
+  h4,
+  h5 {
+    color: #bbb;
+    text-align: center;
+    margin: 0 0 30px;
+  }
+}
+
+Button {
+  margin-bottom: 20px;
+}
+
+input {
+  font-size: 18px;
+  margin: 0 0 30px;
+  padding: 10px 10px;
+  width: 100%;
+  background-color: #000033;
+  color: #bbb;
+  outline: none;
+  border: 1px solid #bbb;
+  border-radius: 20px;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -ms-transition: 0.2s ease all;
+  -o-transition: 0.2s ease all;
+  transition: 0.2s ease all;
+
+  &:focus {
+    border-color: #c34fa4;
+  }
+}

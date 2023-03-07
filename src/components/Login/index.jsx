@@ -1,8 +1,16 @@
+import { useDispatch } from 'react-redux';
+
 import Button from '../Button';
 
 import styles from './Login.module.scss';
 
 const Login = () => {
+  const dispatch = useDispatch();
+
+  const renderSignUpForm = () => {
+    dispatch({ type: 'CHANGE_FORM', payload: 'signUp' });
+  };
+
   return (
     <div className={styles.hero}>
       <h2>Добро пожаловать</h2>
@@ -27,6 +35,8 @@ const Login = () => {
       />
 
       <Button title="Войти" />
+
+      <Button title="Зарегистрироваться" onClick={() => renderSignUpForm()} />
     </div>
   );
 };
