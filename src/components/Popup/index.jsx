@@ -2,17 +2,19 @@ import React from 'react';
 
 import Login from '../../components/Login';
 import SignUp from '../../components/SignUp';
+import VideoPlayer from '../VideoPlayer';
 
 import styles from './Popup.module.scss';
 
 const Popup = (props) => {
-  const { closePopup, formType } = props;
+  const { closePopup, link, formType } = props;
 
   return (
     <div className={styles.hero}>
       <div className={styles.popupWrapper}>
         {formType === 'login' && <Login />}
         {formType === 'signUp' && <SignUp />}
+        {formType === 'video' && <VideoPlayer link={link} />}
 
         <div
           onClick={() => {

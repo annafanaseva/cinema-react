@@ -1,14 +1,23 @@
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import * as actions from '../../store/actions';
 
 import Button from '../Button';
 
 import styles from './Login.module.scss';
 
 const Login = () => {
+  const [formType, setFormType] = useState('');
+
   const dispatch = useDispatch();
 
-  const renderSignUpForm = () => {
-    dispatch({ type: 'CHANGE_FORM', payload: 'signUp' });
+  const renderSignUpForm = (formType) => {
+    setFormType('signUp');
+    dispatch(
+      actions.changeForm({
+        formType: formType
+      })
+    );
   };
 
   return (
@@ -36,7 +45,7 @@ const Login = () => {
 
       <Button title="Войти" />
 
-      <Button title="Зарегистрироваться" onClick={() => renderSignUpForm()} />
+      <Button title="Зарегистрироваться" onClick={() => renderSignUpForm(formType)} />
     </div>
   );
 };

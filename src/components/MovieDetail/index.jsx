@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import AvaliableCinema from '../AvaliableCinema';
-import VideoPopup from '../VideoPopup';
+import Popup from '../Popup';
 import { monthNames } from '../../constants';
 import { CITIES } from '../../constants';
 
@@ -109,7 +109,11 @@ const MovieDetail = (props) => {
                 )}
 
                 {isOpen && (
-                  <VideoPopup link={youTubeTrailer} closePopup={(isOpen) => setIsOpen(isOpen)} />
+                  <Popup
+                    link={youTubeTrailer}
+                    formType="video"
+                    closePopup={(isOpen) => setIsOpen(isOpen)}
+                  />
                 )}
               </div>
 
