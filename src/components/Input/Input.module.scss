@@ -1,0 +1,42 @@
+.wrapper {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.input {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #7e7a7a;
+  color: #7e7a7a;
+  font-size: 16px;
+  height: 30px;
+  padding-left: 15px;
+  width: calc(100% - 15px);
+  transition: border 2px ease;
+}
+
+.label {
+  position: absolute;
+  bottom: 0px;
+  left: 15px;
+  pointer-events: none;
+  color: #7e7a7a;
+  font-size: 14px;
+  line-height: 40px;
+  white-space: nowrap;
+  top: -2px;
+  transition: top 0.3s ease 0s;
+}
+
+.input:focus-visible {
+  outline: none;
+  border-bottom: 1px solid #f8595e;
+  border-image: linear-gradient(to right top, #c34fa4, #f8595e, #c34fa4);
+  border-image-slice: 1;
+}
+
+.input:focus~.label,
+.input:not(:focus):valid~.label {
+  top: -26px;
+  font-size: 12px;
+}
