@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeForm } from '../../store/actions';
 
@@ -6,6 +7,8 @@ import Button from '../Button';
 import styles from './Login.module.scss';
 
 const Login = () => {
+  const [formType, setFormType] = useState('');
+
   const dispatch = useDispatch();
 
   const renderSignUpForm = () => {
