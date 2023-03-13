@@ -1,15 +1,26 @@
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeForm } from '../../store/actions';
 
 import Button from '../Button';
+import Input from '../Input';
 
 import styles from './SignUp.module.scss';
 
 const SignUp = () => {
+  const [inputType, setInputType] = useState('password');
+  const [repeatInputType, setRepeatInputType] = useState('password');
   const dispatch = useDispatch();
 
+  const makeTextType = (type, repeat) => {
+    repeat !== 'repeat' ? setInputType(type) : setRepeatInputType(type);
+  };
+
+  const makePasswordType = (type, repeat) => {
+    repeat !== 'repeat' ? setInputType(type) : setRepeatInputType(type);
+  };
+
   const renderLoginForm = () => {
-    console.log('event');
     dispatch(changeForm('login'));
   };
 
@@ -17,59 +28,40 @@ const SignUp = () => {
     <div className={styles.hero}>
       <h2>Регистрация</h2>
 
-      <input
-        type="email"
-        id="email"
-        name="email"
-        placeholder="Email.."
-        autoComplete="off"
-        required
-      />
+      <div className={styles.form}>
+        <Input label="Email" type="text" />
 
-      <input type="text" id="name" name="name" placeholder="Имя.." autoComplete="off" required />
+        <Input label="Имя" type="text" />
 
-      <input
-        type="text"
-        id="lastname"
-        name="lastname"
-        placeholder="Фамилия.."
-        autoComplete="off"
-        required
-      />
+        <Input label="Фамилия" type="text" />
 
-      <input
-        type="phone"
-        id="phone"
-        name="phone"
-        placeholder="Телефон.."
-        autoComplete="off"
-        required
-      />
+        <Input label="Телефон" type="tel" />
 
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Пароль.."
-        autoComplete="off"
-        required
-      />
+        <div className={styles.wrapper}>
+          <Input label="Password" type={inputType} />
 
-      <input
-        type="password"
-        id="repetPassword"
-        name="repetPassword"
-        placeholder="Повторите пароль.."
-        autoComplete="off"
-        required
-      />
+          <div
+            className={styles.eye}
+            onMouseDown={() => makeTextType('text')}
+            onMouseUp={() => makePasswordType('password')}></div>
+        </div>
 
-      <div className={styles.button} onClick={() => {}}>
-        <Button title="Зарегистрироваться" />
-      </div>
+        <div className={styles.wrapper}>
+          <Input label="Password" type={repeatInputType} />
 
-      <div className={styles.button} onClick={() => renderLoginForm()}>
-        <Button title="Уже есть аккаунт" />
+          <div
+            className={styles.eye}
+            onMouseDown={() => makeTextType('text', 'repeat')}
+            onMouseUp={() => makePasswordType('password', 'repeat')}></div>
+        </div>
+
+        <div className={styles.button} onClick={() => {}}>
+          <Button title="Зарегистрироваться" />
+        </div>
+
+        <div className={styles.button} onClick={() => renderLoginForm()}>
+          <Button title="Уже есть аккаунт" />
+        </div>
       </div>
     </div>
   );

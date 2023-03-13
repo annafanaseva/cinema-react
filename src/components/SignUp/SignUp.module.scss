@@ -14,32 +14,26 @@
   }
 }
 
+.form {
+  width: 100%;
+}
+
 .button {
   width: 100%;
   margin-bottom: 20px;
 }
 
-input {
-  font-size: 18px;
-  margin: 0 0 30px;
-  padding: 10px 10px;
-  width: 100%;
-  background-color: #000033;
-  color: #bbb;
-  outline: none;
-  border: 1px solid #bbb;
-  border-radius: 20px;
-  display: inline-block;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -ms-transition: 0.2s ease all;
-  -o-transition: 0.2s ease all;
-  transition: 0.2s ease all;
+.wrapper {
+  position: relative;
+}
 
-  &:focus {
-    border-color: #c34fa4;
-  }
+.eye {
+  position: absolute;
+  right: 0;
+  top: 10%;
+  transform: translate(-50%);
+  cursor: pointer;
+  background-image: url("../../assets/img/eye.svg");
+  width: 19px;
+  height: 19px;
 }
