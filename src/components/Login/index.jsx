@@ -1,4 +1,5 @@
 import { useDispatch } from 'react-redux';
+import { changeForm } from '../../store/actions';
 
 import Button from '../Button';
 
@@ -8,7 +9,8 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const renderSignUpForm = () => {
-    dispatch({ type: 'CHANGE_FORM', payload: 'signUp' });
+    console.log('event');
+    dispatch(changeForm('signUp'));
   };
 
   return (
@@ -33,10 +35,13 @@ const Login = () => {
         autoComplete="off"
         required
       />
+      <div className={styles.button} onClick={() => {}}>
+        <Button title="Войти" />
+      </div>
 
-      <Button title="Войти" />
-
-      <Button title="Зарегистрироваться" onClick={() => renderSignUpForm()} />
+      <div className={styles.button} onClick={() => renderSignUpForm()}>
+        <Button title="Зарегистрироваться" />
+      </div>
     </div>
   );
 };

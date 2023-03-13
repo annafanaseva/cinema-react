@@ -1,8 +1,18 @@
+import { useDispatch } from 'react-redux';
+import { changeForm } from '../../store/actions';
+
 import Button from '../Button';
 
 import styles from './SignUp.module.scss';
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+
+  const renderLoginForm = () => {
+    console.log('event');
+    dispatch(changeForm('login'));
+  };
+
   return (
     <div className={styles.hero}>
       <h2>Регистрация</h2>
@@ -11,7 +21,7 @@ const SignUp = () => {
         type="email"
         id="email"
         name="email"
-        placeholder="email.."
+        placeholder="Email.."
         autoComplete="off"
         required
       />
@@ -54,8 +64,13 @@ const SignUp = () => {
         required
       />
 
-      <Button title="Зарегистрироваться" />
-      <Button title="Уже есть аккаунт" />
+      <div className={styles.button} onClick={() => {}}>
+        <Button title="Зарегистрироваться" />
+      </div>
+
+      <div className={styles.button} onClick={() => renderLoginForm()}>
+        <Button title="Уже есть аккаунт" />
+      </div>
     </div>
   );
 };

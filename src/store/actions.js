@@ -1,6 +1,8 @@
 import * as actions from './actionTypes';
 
-export const changeForm = (formType) => ({
+export const changeForm = (formType_) => ({
   type: actions.CHANGE_FORM,
-  payload: formType
+  payload: {
+    formType: formType_
+  }
 });

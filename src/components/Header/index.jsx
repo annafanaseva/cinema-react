@@ -10,7 +10,7 @@ import styles from './Header.module.scss';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const formType = useSelector((state) => state);
+  const formType = useSelector((state) => state.formType);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);

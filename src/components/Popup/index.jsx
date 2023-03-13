@@ -11,7 +11,7 @@ const Popup = (props) => {
   return (
     <div className={styles.hero}>
       <div className={styles.popupWrapper}>
-        {formType === 'login' && <Login />}
+        {formType == 'login' && <Login />}
         {formType === 'signUp' && <SignUp />}
 
         <div

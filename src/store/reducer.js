@@ -1,9 +1,9 @@
 import * as actions from './actionTypes';
 
-export default function reducer(state = 'login', action) {
+export default function reducer(state = [], action) {
   switch (action.type) {
     case actions.CHANGE_FORM:
-      return [...state, action.payload];
+      return { formType: action.payload.formType };
 
     default:
       return state;
