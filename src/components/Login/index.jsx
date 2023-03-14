@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { createRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { changeForm } from '../../store/actions';
 
@@ -9,18 +9,23 @@ import styles from './Login.module.scss';
 
 const Login = () => {
   const [inputType, setInputType] = useState('password');
+  const loginRef = createRef();
+  const passwordRef = createRef();
+
   const dispatch = useDispatch();
 
   const renderSignUpForm = () => {
     dispatch(changeForm('signUp'));
   };
 
-  const makeTextType = (type) => {
+  const makeCorrectType = (type) => {
     setInputType(type);
   };
 
-  const makePasswordType = (type) => {
-    setInputType(type);
+  const handleClick = (event) => {
+    event.preventDefault();
+    console.log('login: ' + loginRef.current.value);
+    console.log('password: ' + passwordRef.current.value);
   };
 
   return (
@@ -28,26 +33,27 @@ const Login = () => {
       <h2>Добро пожаловать</h2>
       <h4>Для входа в личный кабинет введите свой номер телефона и пароль</h4>
 
-      <div className={styles.form}>
-        <Input label="Email" type="text" />
+      <form className={styles.form}>
+        <Input label="Email" type="text" ref={loginRef} />
 
         <div className={styles.wrapper}>
-          <Input label="Password" type={inputType} />
+          <Input label="Password" type={inputType} ref={passwordRef} />
 
           <div
             className={styles.eye}
-            onMouseDown={() => makeTextType('text')}
-            onMouseUp={() => makePasswordType('password')}></div>
+            onMouseDown={() => makeCorrectType('text')}
+            onMouseUp={() => makeCorrectType('password')}
+          />
         </div>
 
-        <div className={styles.button} onClick={() => {}}>
+        <div className={styles.button} onClick={handleClick}>
           <Button title="Войти" />
         </div>
 
         <div className={styles.button} onClick={() => renderSignUpForm()}>
           <Button title="Зарегистрироваться" />
         </div>
-      </div>
+      </form>
     </div>
   );
 };

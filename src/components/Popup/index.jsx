@@ -3,6 +3,7 @@ import React from 'react';
 import Login from '../../components/Login';
 import SignUp from '../../components/SignUp';
 import VideoPlayer from '../VideoPlayer';
+import ErrorModal from '../ErrorModal';
 
 import styles from './Popup.module.scss';
 
@@ -14,6 +15,7 @@ const Popup = (props) => {
       <div className={styles.popupWrapper}>
         {formType == 'login' && <Login />}
         {formType === 'signUp' && <SignUp />}
+        {formType === 'error' && <ErrorModal />}
         {formType === 'video' && <VideoPlayer link={link} />}
 
         <div
