@@ -10,7 +10,8 @@ const VideoPlayer = (props) => {
         height="315"
         src={`https://www.youtube.com/embed/${link}`}
         title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      ></iframe>
     </div>
   );
 };

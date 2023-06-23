@@ -43,7 +43,7 @@ const FilmCardWrapper = () => {
         <Loader />
       ) : films.length ? (
         <div className={styles.wrapper}>
-          {films.map(function (film) {
+          {films.map((film) => {
             const { order, acronym, posterLink, eventId, ageLimit } = film;
             return (
               <FilmCard

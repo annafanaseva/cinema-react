@@ -37,6 +37,7 @@ const SignUp = () => {
     event.preventDefault();
 
     const user = {
+      isAuth: false,
       login: loginRef.current.value,
       name: nameRef.current.value,
       lastname: lastnameRef.current.value,
@@ -45,7 +46,7 @@ const SignUp = () => {
       repeatPassword: repeatPasswordRef.current.value
     };
 
-    user.password === user.repeatPassword && alert('Пароли не совпадают');
+    user.password !== user.repeatPassword && alert('Пароли не совпадают');
 
     !localStorage.getItem(user.login)
       ? storage.setItem(loginRef.current.value, JSON.stringify(user))
@@ -66,7 +67,7 @@ const SignUp = () => {
         <Input label="Телефон" type="tel" ref={telRef} />
 
         <div className={styles.wrapper}>
-          <Input label="Password" type={inputType} ref={passwordRef} />
+          <Input label="Пароль" type={inputType} ref={passwordRef} />
 
           <div
             className={styles.eye}
@@ -76,7 +77,7 @@ const SignUp = () => {
         </div>
 
         <div className={styles.wrapper}>
-          <Input label="Password" type={repeatInputType} ref={repeatPasswordRef} />
+          <Input label="Повторите пароль" type={repeatInputType} ref={repeatPasswordRef} />
 
           <div
             className={styles.eye}

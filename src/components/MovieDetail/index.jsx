@@ -101,10 +101,7 @@ const MovieDetail = (props) => {
                       </svg>
                     </div>
 
-                    <img
-                      src={`http://img.youtube.com/vi/${youTubeTrailer}/maxresdefault.jpg`}
-                      alt=""
-                    />
+                    <img src={`http://img.youtube.com/vi/${youTubeTrailer}/maxresdefault.jpg`} />
                   </div>
                 )}
 
@@ -152,7 +149,7 @@ const MovieDetail = (props) => {
                   );
                 })
               ) : (
-                <div className={styles.text}>Доступные сеансы отсутствуют</div>
+                <p className={styles.text}>Доступные сеансы отсутствуют</p>
               )}
             </div>
 

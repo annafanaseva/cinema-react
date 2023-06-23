@@ -37,7 +37,7 @@ const Login = () => {
         <Input label="Email" type="text" ref={loginRef} />
 
         <div className={styles.wrapper}>
-          <Input label="Password" type={inputType} ref={passwordRef} />
+          <Input label="Пароль" type={inputType} ref={passwordRef} />
 
           <div
             className={styles.eye}

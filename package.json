@@ -1,9 +1,7 @@
 {
   "name": "my-app",
   "version": "0.1.0",
-  "repository": {
-    "url": "git+https://github.com/annafanaseva/cinema-react.git"
-  },
+  "homepage": "https://annafanaseva.github.io/cinema-react",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
