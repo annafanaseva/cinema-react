@@ -1,11 +1,19 @@
 .btn {
-  min-height: 32px;
-  padding: 0 32px;
-  border-radius: 16px;
-  border: none;
+  width: 100%;
+  padding: 10px 32px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
   color: white;
   font-size: 14px;
-  font-weight: 600;
-  background: linear-gradient(135deg, #f50 69.91%, #d6bb00);
+  font-family: Ubuntu, sans-serif;
+  box-shadow: 6px 8px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  border: none;
+  background-image: linear-gradient(to right, #c34fa4 0%, #f8595e 51%, #c34fa4 100%);
   cursor: pointer;
+
+  &:hover {
+    background-position: right center;
+  }
 }

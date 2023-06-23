@@ -21,7 +21,7 @@ const FilmCardWrapper = () => {
     setIsError(false);
     try {
       const res = await fetch(
-        'https://soft.silverscreen.by:8443/wssite/webapi/event/data?filter=%7B%22city%22:1%7D&extended=true'
+        'https://soft.silverscreen.by:8443/wssite/webapi/event/data?filter=%7B%22city%22:5%7D&extended=true'
       );
 
       const json = await res.json();
@@ -35,20 +35,26 @@ const FilmCardWrapper = () => {
 
   return (
     <>
-      {isError && <div className={styles.title}>Ooops, something went wrong</div>}
+      <div className={styles.title}>Афиша кино</div>
+
+      {isError && <div className={styles.errorTitle}>Ooops, something went wrong</div>}
 
       {isLoading ? (
         <Loader />
       ) : films.length ? (
         <div className={styles.wrapper}>
-          {films.map((film) => (
-            <FilmCard
-              key={film.order}
-              title={film.acronym}
-              imgUrl={film.posterLink}
-              id={film.eventId}
-            />
-          ))}
+          {films.map((film) => {
+            const { order, acronym, posterLink, eventId, ageLimit } = film;
+            return (
+              <FilmCard
+                key={order}
+                title={acronym}
+                imgUrl={posterLink}
+                id={eventId}
+                ageLimit={ageLimit}
+              />
+            );
+          })}
         </div>
       ) : (
         <div className={styles.title}>We’ve found no movies, sorry!</div>

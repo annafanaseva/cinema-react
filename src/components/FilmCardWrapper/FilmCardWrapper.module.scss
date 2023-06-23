@@ -2,10 +2,18 @@
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  max-width: 1020px;
   margin: 0 auto;
 }
 
 .title {
+  margin-top: 60px;
+  margin-bottom: 30px;
+  color: #fff;
+  font: 700 36px Ubuntu, Roboto, Arial, Helvetica, sans-serif;
+  width: 100%;
+  text-align: center;
+}
+
+.errorTitle {
   color: white;
 }
