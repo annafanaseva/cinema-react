@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/cinema-react/static/css/main.d60f1ac9.css",
+    "main.js": "/cinema-react/static/js/main.2df9a285.js",
+    "static/js/787.28cb0dcd.chunk.js": "/cinema-react/static/js/787.28cb0dcd.chunk.js",
+    "static/media/Ubuntu-Regular.ttf": "/cinema-react/static/media/Ubuntu-Regular.1cbb1b79a23478cc89ad.ttf",
+    "static/media/film.jpg": "/cinema-react/static/media/film.66ba06657f4c18643dba.jpg",
+    "static/media/logo.svg": "/cinema-react/static/media/logo.c830bbdaacd7bfc538a27e1877176e24.svg",
+    "static/media/location.svg": "/cinema-react/static/media/location.aad094c0dabfdf80e09f9a16f5355f00.svg",
+    "static/media/eye.svg": "/cinema-react/static/media/eye.c087e55757c8f8b501f5.svg",
+    "index.html": "/cinema-react/index.html",
+    "main.d60f1ac9.css.map": "/cinema-react/static/css/main.d60f1ac9.css.map",
+    "main.2df9a285.js.map": "/cinema-react/static/js/main.2df9a285.js.map",
+    "787.28cb0dcd.chunk.js.map": "/cinema-react/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d60f1ac9.css",
+    "static/js/main.2df9a285.js"
+  ]
+}
