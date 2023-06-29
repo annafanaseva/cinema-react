@@ -1,1 +1,1 @@
-Preview: https://annafanaseva.github.io/portfolio/
+Preview: https://annafanaseva.github.io/cinema-react/
